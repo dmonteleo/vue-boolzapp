@@ -100,8 +100,23 @@ body {
 
 .searchbar-left {
   height: 50px;
-  background-color: orange;
+  background-color: white;
+  display: flex;
+  align-items: center;
 }
+
+.searchbar-left label {
+  /* background-color: blue; */
+}
+
+.left-searchbar-input {
+  height: 90%;
+  width: 90%;
+  border-radius: 10px;
+  border: none;
+}
+
+/* CONTACTS LEFT */
 
 .contacts-left {
   height: calc(100% - 200px);
