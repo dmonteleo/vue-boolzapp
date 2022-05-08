@@ -27,14 +27,14 @@ body {
 
 /* LEFT */
 
-/* HEADER LEFT */
-
 .left {
   background-color: green;
   width: calc(40%);
   height: 100%;
   float: left;
 }
+
+/* HEADER LEFT */
 
 .header-left {
   height: 70px;
@@ -100,7 +100,7 @@ body {
 
 .searchbar-left {
   height: 50px;
-  background-color: white;
+  background-color: #fafafa;
   display: flex;
   align-items: center;
 }
@@ -131,6 +131,8 @@ body {
   height: 100%;
   float: right;
 }
+
+/* HEADER RIGHT */
 
 .header-right {
   background-color: #eaeaea;
@@ -165,14 +167,81 @@ body {
   margin-right: 5px;
 }
 
+/* MESSAGES RIGHT */
+
 .messages-right {
-  background-color: black;
-  /* background-image: url("../assets/img/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp-thumbnail.jpg"); */
+  background-image: url('/assets/img/mine.jpg');
   height: calc(100% - 140px);
+  padding: 5% 10%;
+  overflow-y: scroll;
+  width: 100%;
 }
 
-.footer-right {
-  background-color: red;
-  height: 70px;
+.messages-right .message {
+  background-color: white;
+  margin: 5px 0;
+  min-width: 40%;
+  max-width: 60%;
+  border-radius: 10px;
+  padding: 20px;
 }
+
+.messages-right .message.sent {
+  float: right;
+  background-color: #d5f9ba;
+}
+
+.messages-right .message.received {
+  float: left;
+  background-color: white;
+
+}
+
+/* FOOTER RIGHT */
+
+.footer-right {
+  background-color: #F3EEEA;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-right .footer-right-center {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-right .footer-right-center input {
+  width: 100%;
+  height: 50px;
+  margin: 10px 0;
+  padding: 15px;
+  border: 0;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.footer-right-right, 
+.footer-right-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 10%;
+}
+
+.footer-icon {
+  /* margin-right: 15px; */
+  /* margin-left: 5px; */
+  color: #b1b1b1;
+  transform: scale(1.3);
+}
+
+
 
