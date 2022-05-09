@@ -47,7 +47,7 @@
         <!-- CONTACTS LEFT -->
         <div class="contacts-left">
   
-          <div v-for="(contact, index) in contacts" class="contact">
+          <div v-for="(contact, index) in contacts" class="contact" v-on:click="printMessagesRight(index)" v-on:click="printNumber">
             <div class="contact-logo-info">
               <div class="contact-logo">
                 <img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="`{contact.name}`">

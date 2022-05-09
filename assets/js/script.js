@@ -174,10 +174,10 @@ const app = new Vue({
   methods: {
     // ciao(){console.log('ajfpaisjfpiasjfpasijfpasjf')},
 
-    printMessagesRight() {
+    printMessagesRight(index) {
       const messagesRight = document.querySelector(".messages-right");
       messagesRight.innerHTML = '';
-      for (mex of this.contacts[0].messages) {
+      for (mex of this.contacts[index].messages) {
         messagesRight.innerHTML += ` <div class="message ${mex.status}">
         <div class="message-text">
           ${mex.message}
@@ -190,16 +190,14 @@ const app = new Vue({
     }, 
 
     printNumber() {
+      // console.log(this.contacts[1].messages);
+      console.log('ciao');
 
     }
   },
 
   mounted() {
-    const element = document.querySelector('.contact');
-    console.log(element);
-    element.addEventListener("click", this.printMessagesRight);
-
-    console.log(this.)
+    
   }
 
 })
