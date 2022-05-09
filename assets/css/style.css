@@ -17,11 +17,13 @@ body {
   font-family: 'Lato', sans-serif;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .container {
   height: 95vh;
-  width: 80%;
+  /* min-width: 80%; */
+  width: 1100px;
   margin: auto;
 }
 
@@ -29,7 +31,7 @@ body {
 
 .left {
   background-color: green;
-  width: calc(40%);
+  width: 40%;
   height: 100%;
   float: left;
 }
@@ -105,24 +107,85 @@ body {
   align-items: center;
 }
 
-.searchbar-left label {
-  /* background-color: blue; */
-}
+/* .searchbar-left label {
+  background-color: blue;
+} */
 
 .left-searchbar-input {
   height: 90%;
   width: 90%;
   border-radius: 10px;
   border: none;
+  /* outline: none; */
 }
+
+.left-searchbar-input, 
+.footer-right .footer-right-center input:focus {
+  outline: none;
+}
+
 
 /* CONTACTS LEFT */
 
 .contacts-left {
   height: calc(100% - 200px);
   background-color: green;
+  overflow-y: scroll;
 }
 
+.contact {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+}
+
+.contact-logo-info {
+  height: 100%;
+  display: flex;
+}
+
+.contact-logo img {
+  height: 80%;
+  border-radius: 50%;
+  margin: 0 15px;
+}
+
+.contact-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.contact-info small {
+  color: gray;
+}
+
+.contact-time {
+  font-size: x-small;
+  height: 100%;
+  padding-top: 5px;
+  padding-right: 7px;
+}
+
+/* .contact-time span {
+  margin: 10px;
+  color: red;
+} */
+
+.contact-selected {
+  background-color: #e9ebeb;
+}
 /* RIGHT */
 
 .right {
@@ -184,6 +247,13 @@ body {
   max-width: 60%;
   border-radius: 10px;
   padding: 20px;
+  clear: both;
+}
+
+.messages-right .message::after {
+  clear: both;
+  display: table;
+  content: '';
 }
 
 .messages-right .message.sent {
@@ -194,7 +264,6 @@ body {
 .messages-right .message.received {
   float: left;
   background-color: white;
-
 }
 
 /* FOOTER RIGHT */
