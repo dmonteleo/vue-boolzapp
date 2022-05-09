@@ -8,6 +8,8 @@ const app = new Vue({
 
     activeContact: 0,
     newMessage: '',
+    leftSearchbarInput: '',
+
 
     contacts: [
       {
@@ -235,13 +237,44 @@ const app = new Vue({
         status: 'received'
       }
       this.sendMessage(message, contact);
+    },
+
+    isThereStringInString(string1, string2) {
+      let flag = true;
+      for(i=0; i<string1.length; i++) {
+        if(string1[i] !== string2[i]) {
+          string1 = string1.slice(0, i-1);
+          flag = false;
+        }
+        return string1;
+      }
+
+    },
+
+    filtraUtenti() {
+      this.contacts.forEach((utente) => {
+        if ( utente.name.toLowercase().includes(this.leftSearchbarInput.toLowercase()) ) {
+          utente.visible = true;
+        }
+        else { utente.visible = false;}
+      })
     }
+
 
   },
 
   mounted() {
-    
+
+    // setInterval( () => {
+    // console.log(this.leftSearchbarInput);
+    // console.log('ciao');
+    // }, 3000);
+
+    // console.log(this.isThereStringInString('marf', 'marco'));
+    // this.searchContact('ma');
+
   }
+
 
 })
 

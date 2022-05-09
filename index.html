@@ -42,7 +42,7 @@
           <label class="search-label" for="search">
             <i id="prova" class="fa fa-search" aria-hidden="true"></i>
           </label>
-          <input id="contacts-filter" type="text" class="left-searchbar-input" placeholder="           &#xf002;     Cerca o inizia una nuova chat" name="search">
+          <input v-model="leftSearchbarInput" @keyup=" filtraUtenti()" id="contacts-filter" type="text" class="left-searchbar-input" placeholder="           &#xf002;     Cerca o inizia una nuova chat" name="search">
         </div>
         <!-- CONTACTS LEFT -->
         <div class="contacts-left">
@@ -132,7 +132,7 @@
             <i class="far fa-smile" ></i>
           </div>
           <div class="footer-right-center">
-            <input v-model.trim="newMessage" @keyup.enter="sendNewMessage" type="text" class="new-message-input" placeholder="Scrivi un messaggio">
+            <input v-model.trim="newMessage"  enter="sendNewMessage" type="text" class="new-message-input" placeholder="Scrivi un messaggio">
           </div>
           <div class="footer-right-right footer-icon">
             <i class="fa fa-microphone" aria-hidden="true"></i>
