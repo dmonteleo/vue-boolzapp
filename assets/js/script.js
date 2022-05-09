@@ -6,6 +6,9 @@ const app = new Vue({
       avatar: '_io'
     },
 
+    activeContact: 0,
+    newMessage: '',
+
     contacts: [
       {
           name: 'Michele',
@@ -174,26 +177,66 @@ const app = new Vue({
   methods: {
     // ciao(){console.log('ajfpaisjfpiasjfpasijfpasjf')},
 
-    printMessagesRight(index) {
-      const messagesRight = document.querySelector(".messages-right");
-      messagesRight.innerHTML = '';
-      for (mex of this.contacts[index].messages) {
-        messagesRight.innerHTML += ` <div class="message ${mex.status}">
-        <div class="message-text">
-          ${mex.message}
-        </div>
-        <div class="message-time">
-          ${mex.date}
-        </div>
-        </div> `;
-      }
+    // printMessagesRight(index) {
+    //   // this.activeContact = index;
+    //   const messagesRight = document.querySelector(".messages-right");
+    //   messagesRight.innerHTML = '';
+    //   for (mex of this.contacts[index].messages) {
+    //     messagesRight.innerHTML += ` <div class="message ${mex.status}">
+    //     <div class="message-text">
+    //       ${mex.message}
+    //     </div>
+    //     <div class="message-time">
+    //       ${mex.date}
+    //     </div>
+    //     </div> `;
+    //   }
+    // }, 
+
+    getLastMessage(index) {
+      const contact = this.contacts[index];
+      const messages = contact.messages;
+      const lastMessage = messages[messages.length - 1];
+      return lastMessage.message;
     }, 
 
-    printNumber() {
-      // console.log(this.contacts[1].messages);
-      console.log('ciao');
+    getLastDate(index) {
+      const contact = this.contacts[index];
+      const messages = contact.messages;
+      const lastMessage = messages[messages.length -1];
+      return lastMessage.date;
+    }, 
 
+    sendNewMessage() {
+      // console.log(this.newMessage);
+      const contact = this.contacts[this.activeContact];
+      const newMessage = {
+        date: 'xxxxxxxxxxxxx', 
+        message: this.newMessage,
+        status: 'sent'
+      }
+      this.sendMessage(newMessage, contact);
+      this.newMessage = '';
+      setTimeout( () => {
+        this.sendAnswerFake(contact);
+      }, 3000)
+    },
+
+    sendMessage(message, target) {
+      setTimeout( () => {
+        target.messages.push(message);
+      }, 1000);
+    }, 
+
+    sendAnswerFake(contact) {
+      const message = {
+        date: '454454554', 
+        message: 'ok!', 
+        status: 'received'
+      }
+      this.sendMessage(message, contact);
     }
+
   },
 
   mounted() {

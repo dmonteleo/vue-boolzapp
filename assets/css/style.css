@@ -143,6 +143,11 @@ body {
   cursor: pointer;
 }
 
+.contact.active {
+  border-bottom-color: transparent;
+  background: #E9EBEB;
+}
+
 .contact-logo-info {
   height: 100%;
   display: flex;

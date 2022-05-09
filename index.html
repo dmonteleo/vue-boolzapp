@@ -47,18 +47,25 @@
         <!-- CONTACTS LEFT -->
         <div class="contacts-left">
   
-          <div v-for="(contact, index) in contacts" class="contact" v-on:click="printMessagesRight(index)" v-on:click="printNumber">
+          <div 
+          v-for="(contact, index) in contacts" 
+          class="contact" 
+          
+          v-on:click="activeContact = index; printMessagesRight(index)"
+          :class = "{'active': activeContact === index}">
             <div class="contact-logo-info">
               <div class="contact-logo">
                 <img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="`{contact.name}`">
               </div>
               <div class="contact-info">
                 <h4 clas="contact-name">{{contact.name}}</h4>
-                <small>ultimo messaggio inviato</small>
+                <small>{{getLastMessage(index)}}</small>
+                <!-- <small>PROVA</small> -->
               </div>
             </div>
             <div class="contact-time">
-              <span>00:00</span>
+              <span>{{getLastDate(index)}}</span>
+              <!-- <span>PROVA PROVA</span> -->
             </div>
           </div>
   
@@ -69,9 +76,9 @@
         <!-- HEADER RIGHT -->
         <div class="header-right">
           <div class="header-right-logo">
-            <img src="./assets/img/avatar_1.jpg" alt="">
+            <img :src="`./assets/img/avatar${contacts[activeContact].avatar}.jpg`" alt="">
             <div class="text-logo">
-              <span>Michele</span>
+              <span>{{contacts[activeContact].name}}</span>
               <span>Ultimo accesso oggi alle 12:00</span>
             </div>
           </div>
@@ -84,16 +91,16 @@
         <!-- MESSAGES RIGHT -->
         <div class="messages-right">
           
-          <!-- <div v-for="mex in contacts[0].messages" class="message" :class="`${mex.status}`">
+          <div v-for="mex in contacts[activeContact].messages" class="message" :class="mex.status">
             <div class="message-text">
               {{mex.message}}
             </div>
             <div class="message-time">
               {{mex.date}}
             </div>
-          </div> -->
+          </div>
 
-          <div class="message received">
+          <!-- <div class="message received">
             <div class="message-text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, iusto dolore. Sint rem, obcaecati officiis, tempora aliquam at facilis consequuntur dolorem nesciunt ab eum quasi, inventore quibusdam natus? Vitae, beatae.
             </div>
@@ -116,7 +123,7 @@
             <div class="message-time">
               00/00/0000 00:00:00
             </div>
-          </div>
+          </div> -->
 
         </div>
         <!-- FOOTER RIGHT -->
@@ -125,7 +132,7 @@
             <i class="far fa-smile" ></i>
           </div>
           <div class="footer-right-center">
-            <input type="text" class="new-message-input" placeholder="Scrivi un messaggio">
+            <input v-model.trim="newMessage" @keyup.enter="sendNewMessage" type="text" class="new-message-input" placeholder="Scrivi un messaggio">
           </div>
           <div class="footer-right-right footer-icon">
             <i class="fa fa-microphone" aria-hidden="true"></i>
