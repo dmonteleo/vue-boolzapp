@@ -1,10 +1,10 @@
 // per inizializzare i plugin la sintassi è:
 //dayjs.extend(window.dayjs_plugin_NOME_DEL_PLUGIN);
-// dayjs.extend(window.dayjs_plugin_customParseFormat);
-// dayjs.extend(window.dayjs_plugin_relativeTime);
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+dayjs.extend(window.dayjs_plugin_relativeTime);
 
 
-// dayjs.locale('it');
+dayjs.locale('it');
 
 
 
@@ -14,15 +14,14 @@ const app = new Vue({
     user: {
       name: 'Sofia',
       avatar: '_io',
+    },
 
-      // adesso: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+    adesso: dayjs().format('DD/MM/YYYY HH:mm:ss'),
       // adesso2: dayjs().format('dddd D MMMM, YYYY'),
       // tempoPassato: dayjs('1945-04-25').fromNow(),
       // fineGuerraMondiale: dayjs('1945-04-25'),
       // sept11: dayjs('2001-09-11'),
       // confrontoDate: ''
-
-    },
 
     activeContact: 0,
     newMessage: '',
@@ -228,10 +227,10 @@ const app = new Vue({
     }, 
 
     sendNewMessage() {
-      console.log(this.newMessage);
+      // console.log(this.newMessage);
       const contact = this.contacts[this.activeContact];
       const newMessage = {
-        date: 'xxxxxxxxxxxxx', 
+        date: this.adesso, 
         message: this.newMessage,
         status: 'sent'
       }
@@ -250,7 +249,7 @@ const app = new Vue({
 
     sendAnswerFake(contact) {
       const message = {
-        date: 'xxxxxxxxxx', 
+        date: this.adesso, 
         message: 'ok!', 
         status: 'received'
       }
