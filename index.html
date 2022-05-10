@@ -42,7 +42,7 @@
           <label class="search-label" for="search">
             <i id="prova" class="fa fa-search" aria-hidden="true"></i>
           </label>
-          <input v-model="leftSearchbarInput" @keyup=" filtraUtenti()" id="contacts-filter" type="text" class="left-searchbar-input" placeholder="           &#xf002;     Cerca o inizia una nuova chat" name="search">
+          <input v-model="leftSearchbarInput" @keyup="filtraUtenti()" id="contacts-filter" type="text" class="left-searchbar-input" placeholder="           &#xf002;     Cerca o inizia una nuova chat" name="search">
         </div>
         <!-- CONTACTS LEFT -->
         <div class="contacts-left">
@@ -50,7 +50,7 @@
           <div 
           v-for="(contact, index) in contacts" 
           class="contact" 
-          
+          v-show="contact.visible"
           v-on:click="activeContact = index; printMessagesRight(index)"
           :class = "{'active': activeContact === index}">
             <div class="contact-logo-info">

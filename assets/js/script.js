@@ -252,14 +252,15 @@ const app = new Vue({
     },
 
     filtraUtenti() {
-      this.contacts.forEach((utente) => {
-        if ( utente.name.toLowercase().includes(this.leftSearchbarInput.toLowercase()) ) {
+      this.contacts.forEach( (utente) => {
+        let prova = 0;
+        console.log(prova);
+        if ( utente.name.toLowerCase().includes(this.leftSearchbarInput.toLowerCase()) ) {
           utente.visible = true;
         }
         else { utente.visible = false;}
-      })
-    }
-
+      } )
+    },
 
   },
 
