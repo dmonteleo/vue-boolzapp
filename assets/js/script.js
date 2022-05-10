@@ -1,9 +1,27 @@
+// per inizializzare i plugin la sintassi è:
+//dayjs.extend(window.dayjs_plugin_NOME_DEL_PLUGIN);
+// dayjs.extend(window.dayjs_plugin_customParseFormat);
+// dayjs.extend(window.dayjs_plugin_relativeTime);
+
+
+// dayjs.locale('it');
+
+
+
 const app = new Vue({
   el: '#app',
   data: {
     user: {
       name: 'Sofia',
-      avatar: '_io'
+      avatar: '_io',
+
+      // adesso: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+      // adesso2: dayjs().format('dddd D MMMM, YYYY'),
+      // tempoPassato: dayjs('1945-04-25').fromNow(),
+      // fineGuerraMondiale: dayjs('1945-04-25'),
+      // sept11: dayjs('2001-09-11'),
+      // confrontoDate: ''
+
     },
 
     activeContact: 0,
@@ -210,7 +228,7 @@ const app = new Vue({
     }, 
 
     sendNewMessage() {
-      // console.log(this.newMessage);
+      console.log(this.newMessage);
       const contact = this.contacts[this.activeContact];
       const newMessage = {
         date: 'xxxxxxxxxxxxx', 
@@ -232,29 +250,27 @@ const app = new Vue({
 
     sendAnswerFake(contact) {
       const message = {
-        date: '454454554', 
+        date: 'xxxxxxxxxx', 
         message: 'ok!', 
         status: 'received'
       }
       this.sendMessage(message, contact);
     },
 
-    isThereStringInString(string1, string2) {
-      let flag = true;
-      for(i=0; i<string1.length; i++) {
-        if(string1[i] !== string2[i]) {
-          string1 = string1.slice(0, i-1);
-          flag = false;
-        }
-        return string1;
-      }
+    // isThereStringInString(string1, string2) {
+    //   let flag = true;
+    //   for(i=0; i<string1.length; i++) {
+    //     if(string1[i] !== string2[i]) {
+    //       string1 = string1.slice(0, i-1);
+    //       flag = false;
+    //     }
+    //     return string1;
+    //   }
 
-    },
+    // },
 
     filtraUtenti() {
       this.contacts.forEach( (utente) => {
-        let prova = 0;
-        console.log(prova);
         if ( utente.name.toLowerCase().includes(this.leftSearchbarInput.toLowerCase()) ) {
           utente.visible = true;
         }
@@ -265,6 +281,8 @@ const app = new Vue({
   },
 
   mounted() {
+
+    // this.confrontoDate = this.sept11.diff(this.fineGuerraMondiale,'year');
 
     // setInterval( () => {
     // console.log(this.leftSearchbarInput);
